@@ -1,5 +1,5 @@
 import store from './store';
-import { bugAdded } from './actions';
+import { bugAdded, bugResolved} from './actions';
 
 // UI components should subscribe to the store so they get notified when the store changes (rerender in React)
 const unsubscribe = store.subscribe(() => {
@@ -7,6 +7,7 @@ const unsubscribe = store.subscribe(() => {
 })
 
 store.dispatch(bugAdded("Bug1"));
+store.dispatch(bugResolved(1));
 
 unsubscribe();
 
