@@ -1,17 +1,12 @@
 import store from './store';
-import * as actions from './actionTypes';
+import { bugAdded } from './actions';
 
 // UI components should subscribe to the store so they get notified when the store changes (rerender in React)
 const unsubscribe = store.subscribe(() => {
     console.log("Store changed", store.getState());
 })
 
-store.dispatch({
-    type: actions.BUG_ADDED,
-    payload: {
-        description: 'Bug1'
-    }
-});
+store.dispatch(bugAdded("Bug1"));
 
 unsubscribe();
 
